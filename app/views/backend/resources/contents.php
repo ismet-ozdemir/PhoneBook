@@ -40,10 +40,10 @@
               <td><?= $values['username']; ?></td>
               <td><?= $values['phone']; ?></td>
               <td>
-                <a href="edit-contents/<?= $values['id']; ?>" class="btn btn-info rounded-0 btn-sm" style="margin-right:6px; padding:8px 12px; box-sizing:border-box;">
+                <a href="edit/content/<?= $values['id']; ?>" class="btn btn-info rounded-0 btn-sm" style="margin-right:6px; padding:8px 12px; box-sizing:border-box;">
                   <i class="fas fa-user-edit"></i>
                 </a>
-                <a href="delete-content/<?= $values['id']; ?>" style="margin-right:6px; padding:8px 12px; box-sizing:border-box;" class="btn btn-danger rounded-0 btn-sm">
+                <a href="delete/content/<?= $values['id']; ?>" style="margin-right:6px; padding:8px 12px; box-sizing:border-box;" class="btn btn-danger rounded-0 btn-sm">
                   <i class="fas fa-trash"></i>
                 </a>
               </td>

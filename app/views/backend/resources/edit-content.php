@@ -1,3 +1,20 @@
+<?php
+    if (isset($this->post['username']) and isset($this->post['phone'])) {
+      $values = array(
+          'username' => $this->post['username'],
+          'phone' => $this->post['phone'],
+      );
+      $query= $this->update('contents', $values, $this->post['id']);
+
+      if ($query) {
+        echo 'güncellendi';
+        $this->redirect('contents');
+      }else{
+        echo 'olmadı';
+      }
+    } 
+$content = $this->theodore('contents', array('id' => $this->post['id']));
+unset($this->post['id']); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,47 +30,30 @@
 
 <body>
   <div class="card text-center">
-    <div class="card-header">Phone Book Add</div>
+    <div class="card-header">Phone Book Edit</div>
     <div class="card-body">
-      <form method="post">
+      <form method="post" action="edit/content">
         <div class="form-group row">
           <label for="username" class="col-sm-2 col-form-label">Name And Surname</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="username" name="username">
+            <input type="text" class="form-control" id="username" name="username" value="<?= $content['username']; ?>">
           </div>
         </div>
         <div class="form-group row mt-3">
           <label for="phone" class="col-sm-2 col-form-label">Phone Number</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="phone" name="phone">
+            <input type="text" class="form-control" id="phone" name="phone" value="<?= $content['phone']; ?>">
           </div>
         </div>
+        <?=$_SESSION['csrf']['input'];?>
         <div class="form-group mt-3">
           <button type="submit" class="btn btn-primary mr-2">Save</button>
           <a href="contents" class="btn btn-warning">Cancel</a>
         </div>
-        <?=$_SESSION['csrf']['input'];?>
+        <input type="hidden" name="id" value="<?= $content['id']; ?>">
       </form>
     </div>
   </div>
-
-  <?php
-if (isset($this->post['username']) AND isset($this->post['phone'])) {
-  $option = array(
-    array(
-        'username'=> $this->post['username'],
-        'phone'=> $this->post['phone'],
-    )
-  );
-  $query = $this->insert('contents', $option);
-  if ($query) {
-    echo 'eklendi';
-    $this->redirect('contents');
-  }else{
-    echo 'olmadı';
-  }
-}
-?>
 
 </body>
 

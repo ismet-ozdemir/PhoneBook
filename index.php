@@ -18,7 +18,7 @@ $Mind = new Mind($conf);
 
 // $Mind->route('/','app/request/install'); ---> veritabanı, tablo ve default veri oluşturmaya yarayan sayfa
 
-$Mind->route('/', 'app/views/backend/resources/contents');
-$Mind->route('edit/content:id', 'app/views/backend/resources/edit-content');
-$Mind->route('new/content', 'app/views/backend/resources/new-content');
-$Mind->route('delete/content:id', 'app/request/resources/delete-content');
+$Mind->route('contents', 'app/views/backend/resources/contents'); // ---> verilerin listelendiği sayfa
+$Mind->route('edit/content:id', 'app/views/backend/resources/edit-content'); // ---> verilerin düzenlendiği sayfa
+$Mind->route('new/content', 'app/views/backend/resources/new-content'); // ---> verilerin eklendiği sayfa
+$Mind->route('delete/content:id', 'app/views/backend/resources/delete-content'); // ---> verilerin silindiği sayfa
